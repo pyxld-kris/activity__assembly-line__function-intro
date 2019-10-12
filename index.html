@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+	<title>Dev Launchers</title>
+
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
+		@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');		html,
+		body,
+		#game-container {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			background-color:black;
+			color:white;
+		}
+
+		#page-header {
+			width:100%;
+			margin-top:5%;
+			text-align:center;
+			font-size:2.5em;
+  		font-family: 'Press Start 2P', cursive;
+		}
+
+		#game-container {
+			display: flex;
+			//align-items: center;
+			justify-content: center;
+			margin-top:5%;
+			width:100%;
+			max-width:100vh;
+			margin-left:auto;
+			margin-right:auto;
+			border-radius:0px;
+		}
+
+		#game-container>canvas {
+			border-radius: 0px;
+			width:90%;
+			border: 2px solid white;
+		}
+
+
+		@media screen and (max-width:550px) {
+			/* 
+			This media query is meant to fix a weird codesandbox
+			 	window size issue. It should make the game stay
+				in view better while it's being worked on in codesandbox
+			*/
+			#page-header {
+				font-size:2em;
+				width:50%;
+				margin-left:0;
+			}
+			#game-container {
+				margin-left:0;
+				justify-content:left;
+			}
+			#game-container>canvas {
+				border-radius: 5px;
+				width:60%;
+			}
+		}
+
+.entry-button {
+  width: 30%;
+  text-align: center;
+
+  font-family: "Press Start 2P", cursive;
+  font-decoration: none;
+  color: white;
+  background-color: rgb(0, 150, 0);
+  margin: 2%;
+  padding: 2%;
+
+  display: inline-block;
+	cursor:pointer;
+}
+.entry-button:hover {
+  background-color: rgb(0, 200, 0);
+  color: rgb(230, 230, 230);
+}
+
+.w3-modal{z-index:3;display:none;position:fixed;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgb(0,0,0);background-color:rgba(0,0,0,0.4);color:black;overflow:hidden;}
+.w3-modal-content{margin:auto;background-color:#fff;position:relative;padding:0;outline:0}
+.w3-container,.w3-panel{}.w3-panel{}
+.w3-button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap;background-color:pink;}
+.w3-button:hover{color:#000!important;background-color:red!important}
+.w3-display-topright{position:absolute;right:0;top:0}
+	</style>
+
+	<!-- Disable react's error overlay --------------------------->
+	<!-- 	 * It interferes with the way we're using codesandbox -->
+	<script>
+				window.addEventListener('error', function(e){
+					// prevent React's listener from firing
+					e.stopImmediatePropagation();
+					// prevent the browser's console error message 
+					e.preventDefault();
+				});
+	</script>
+</head>
+<body>
+	<div id="page-header">Dev Launchers</div>
+	<div id="game-container">
+		<div id="reload-message" style="width:40%;position:absolute;left:20%;z-index:-100;text-align:center;">
+			Save your files, then reload 
+			<br />
+			this window to see changes!
+		</div>
+	</div>
+
+	<script src="./.DO_NOT_TOUCH/main.js"></script>
+</body>
+</html>
