@@ -85,6 +85,7 @@ export default class PlayerCharacter extends Phaser.Physics.Arcade.Sprite {
   }
 
   destroy() {
+    this.scene.events.off("update", this.update, this);
     this.destroy();
   }
 }

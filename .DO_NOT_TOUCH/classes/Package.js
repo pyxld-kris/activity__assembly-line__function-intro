@@ -1,40 +1,27 @@
 import Phaser from "phaser";
 
-export default class FloatingPlatform extends Phaser.Physics.Arcade.Sprite {
-  constructor(scene, x, y, platformWidth, platformHeight, label) {
-    super(scene, x, y, scene.generateRectangleSprite(platformWidth, 5));
+export default class Package extends Phaser.GameObjects.Rectangle {
+  constructor(scene, x, y, width, height, contents) {
+    super(scene, x, y, width, height, 0x997755, 1);
     this.scene = scene;
 
-    this.moveSpeed = 4;
-    this.targetX = x;
+    scene.add.existing(this).setDepth(-1);
 
-    this.column = scene.add
-      .sprite(
-        x,
-        y - platformHeight / 2 + 5,
-        scene.generateRectangleSprite(
-          parseInt(platformWidth - 4),
-          platformHeight + 10
-        )
-      )
-      .setTint(0x888888);
-
-    this.platform = scene.physics.add.staticSprite(
-      x,
-      y - platformHeight,
-      scene.generateRectangleSprite(platformWidth - 4, 4)
-    );
+    this.moveSpeed = 2;
+    this.targetX = 600;
+    this.contents = contents;
 
     this.label = scene.add
-      .text(x, y, label, {
+      .text(x, y, contents, {
         fill: "#ffffff",
-        fontSize: "16px",
+        fontSize: "32px",
         fontFamily: '"Press Start 2P"'
       })
       .setOrigin(0.5)
       .setScrollFactor(0)
       .setResolution(3) // Makes text more crisp
-      .setScale(0.5); // Makes text more crisp
+      .setScale(0.5)
+      .setDepth(-1); // Makes text more crisp
 
     /*
     // Add to rendering engine
@@ -49,14 +36,16 @@ export default class FloatingPlatform extends Phaser.Physics.Arcade.Sprite {
 
   setX(x) {
     super.setX(x);
-    this.column.setX(x);
     this.label.setX(x);
-    this.platform.setX(x);
-    this.platform.body.x = x - this.platform.width / 2;
   }
 
   setTargetX(targetX) {
     this.targetX = targetX;
+  }
+
+  setContents(value) {
+    this.contents = value;
+    this.label.setText(value);
   }
 
   update(time, delta) {
@@ -68,12 +57,22 @@ export default class FloatingPlatform extends Phaser.Physics.Arcade.Sprite {
       } else {
         this.setX(this.targetX);
       }
+    } else {
+      this.destroy();
     }
   }
 
   destroy() {
-    this.platform.destroy();
+    // Tell other areas of the game that this package has been destroyed
+    this.scene.events.emit("package-destroyed");
+
+    // unhook from the scene's update event
+    this.scene.events.off("update", this.update, this);
+
+    // Destroy this package's label
     this.label.destroy();
+
+    // Call Phaser3's internal destroy for this object
     super.destroy();
   }
 }

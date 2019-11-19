@@ -1,7 +1,8 @@
 /**** WELCOME! *********************************************/
 /**
- * Sort the steps to allow your character to reach the goal!
+ * The Function Factory
  * 
+ * Change the functions to pass all of the checks!
  * 
  * ----------------------------------------------------------
  * After making a change: save this file, then press the refresh
@@ -11,14 +12,8 @@
 
 /**************** Start Modifying Here! *********************/
 
-
-this.sortStairs = function(array) {
-
-  // Finish the incomplete sorting algorithm!
-  for (let i=0; i<array.length; i++) {
-    swapElements(i, i-1);
-  }
-
+function function1(argument) {
+  return argument+1;
 }
 
 /**** GOODBYE! ************************************************/
@@ -37,16 +32,7 @@ this.sortStairs = function(array) {
 /* */
 
 var scene = this;
-function swapElements(indexA, indexB) {
-  if (indexA<0 || indexB<0 || indexA >=scene.stageArray.length || indexB >=scene.stageArray.length)
-    return;
-  // Swap the integers in stageArray
-  let temp = scene.stageArray[indexA];
-  scene.stageArray[indexA] = scene.stageArray[indexB];
-  scene.stageArray[indexB] = temp;
-
-  return 1;
-}
+scene.function1 = function1; // Gives us access to this in another file
 
 /* eslint-disable */ // Stops codesandbox from giving us annoying errors
 

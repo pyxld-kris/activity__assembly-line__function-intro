@@ -1,17 +1,19 @@
 # DEV LAUNCHERS ACTIVITY
 
-### Stage Maker - Array Intro
+### Assembly Line - Function Intro
 
 We're going to be modifying the "modify.mjs" file for this activity!
 
-Key Concepts: arrays, loops
+Key Concepts: functions, return
 
 ---
 
 #### GOAL:
 
-Sort the steps to allow your character to reach the goal!
+The Function Factory
 
-Open the "modify.mjs" file to begin
+Change the functions to pass all of the checks!
+
+Open the "activity1.mjs" file to begin
 
 ---
