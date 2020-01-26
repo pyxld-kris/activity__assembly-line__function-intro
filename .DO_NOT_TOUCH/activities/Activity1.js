@@ -62,7 +62,7 @@ export default class Activity1 extends Activity {
           new UserCodeHandler(scene, "/activity1.mjs", () => {
             //scene.countdownTimer = new CountdownTimer(scene, 15);
 
-            scene.player = new PlayerCharacter(scene, 10, 10);
+            //scene.player = new PlayerCharacter(scene, 10, 10);
             scene.physics.add.collider(scene.player, scene.platformColliders);
             scene.physics.add.collider(scene.player, scene.ground);
             scene.physics.add.collider(scene.player, scene.goal, () => {

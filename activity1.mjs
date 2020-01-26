@@ -13,7 +13,7 @@
 /**************** Start Modifying Here! *********************/
 
 function function1(argument) {
-  return argument+1;
+  return argument;
 }
 
 /**** GOODBYE! ************************************************/

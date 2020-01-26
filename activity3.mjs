@@ -13,11 +13,11 @@
 /**************** Start Modifying Here! *********************/
 
 function function1(argument) {
-  return argument*4;
+  return argument;
 }
 
 function function2(argument) {
-  return argument/2;
+  return argument;
 }
 
 /**** GOODBYE! ************************************************/
