@@ -8,7 +8,8 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "phaser": "3.17.0"
+    "phaser": "3.17.0",
+    "raw-loader": "latest"
   },
   "devDependencies": {
     "parcel-bundler": "^1.6.1"

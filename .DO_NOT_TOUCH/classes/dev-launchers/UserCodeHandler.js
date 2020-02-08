@@ -1,15 +1,19 @@
 import Phaser from "phaser";
 
 export default class UserCodeHandler {
-  constructor(context, path, callback) {
+  constructor(context, userCode, callback) {
     this.context = context;
-    this.path = path;
+    this.userCode = userCode;
     this.callback = callback;
 
-    this.loadCode();
+    this.executeCode();
   }
 
-  loadCode() {
+  // Used to be 'loadCode()' - refactoring
+  executeCode() {
+    evalWithinContext(this.context, this.userCode);
+    this.callback();
+    /*
     let codeText = fetch(this.path)
       .then(response => {
         return response.text();
@@ -19,6 +23,7 @@ export default class UserCodeHandler {
         evalWithinContext(this.context, modifiedActivityCode);
         this.callback();
       });
+      */
   }
   parseCode(codeString) {
     return codeString;
@@ -73,4 +78,10 @@ function injectIntoModifiedActivityCode(modifiedActivityCode) {
   console.log(modifiedActivityCode);
 
   return modifiedActivityCode;
+}
+
+function loadModifyCode(scene) {
+  //loadScriptWithinContext("../modify.mjs", scene);
+  const modifiedCode = require("!!raw-loader!../modify.js");
+  evalWithinContext(scene, modifiedCode);
 }

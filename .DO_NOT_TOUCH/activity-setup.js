@@ -33,10 +33,11 @@ export function setupActivity(scene) {
   /* Any pre setup code (additional from the game code) or
    * scene injection code needed to run this activity
    * should be executed here */
+
   scene.activitySequence = new ActivitySequence([
-    new Activity1(scene),
-    new Activity2(scene),
-    new Activity3(scene)
+    new Activity1(scene, require("!!raw-loader!../activity1.js")),
+    new Activity2(scene, require("!!raw-loader!../activity2.js")),
+    new Activity3(scene, require("!!raw-loader!../activity3.js"))
   ]);
 
   var currentStage = localStorage.getItem("stage");

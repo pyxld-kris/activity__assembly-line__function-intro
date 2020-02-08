@@ -15,7 +15,7 @@ import Text from "../classes/dev-launchers/activities/info/Text.js";
 const STAGE_NUM = 1;
 
 export default class Activity1 extends Activity {
-  constructor(scene) {
+  constructor(scene, userCode) {
     // Function called when this activity is initialized
     var initFunc = () => {
       localStorage.setItem("stage", STAGE_NUM);
@@ -59,7 +59,7 @@ export default class Activity1 extends Activity {
           );
 
           // Now load the modify code, and then continue activity setup afterward in the callback
-          new UserCodeHandler(scene, "/activity1.mjs", () => {
+          new UserCodeHandler(scene, userCode, () => {
             //scene.countdownTimer = new CountdownTimer(scene, 15);
 
             //scene.player = new PlayerCharacter(scene, 10, 10);
