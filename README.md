@@ -14,6 +14,6 @@ The Function Factory
 
 Change the functions to pass all of the checks!
 
-Open the "activity1.mjs" file to begin
+Open the "activity1.js" file to begin
 
 ---
