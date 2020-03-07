@@ -9,6 +9,11 @@ export default class PlayScene extends Phaser.Scene {
   }
 
   preload() {
+    this.load.script(
+      "webfont",
+      "https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
+    );
+
     this.load.spritesheet("player", "/.DO_NOT_TOUCH/assets/player-sprite.png", {
       frameWidth: 16,
       frameHeight: 16,
